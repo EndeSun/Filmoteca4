@@ -95,7 +95,7 @@ class FilmListActivity : AppCompatActivity() {
 
     class FilmsArrayAdapter (context: Context?, resource:Int, objects: List<Film>): ArrayAdapter<Film>(context!!, resource, objects!!){
         override fun getView(position: Int, convertView: View?, parent:ViewGroup) : View{
-            var view: View = convertView?: LayoutInflater.from(this.context).inflate(R.layout.item_film, parent, false)
+            val view: View = convertView?: LayoutInflater.from(this.context).inflate(R.layout.item_film, parent, false)
 
             val tvFilmName = view.findViewById(R.id.filmName) as TextView
             val tvDirectorName = view.findViewById(R.id.directorName) as TextView
