@@ -7,9 +7,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import es.ua.eps.filmoteca.databinding.ActivityFilmListBinding
 
 
@@ -127,22 +129,31 @@ class FilmListActivity : AppCompatActivity() {
 
         listFilm.adapter = adapter
 
- /*       binding.filmA.setOnClickListener {
-            val filmAListIntent = Intent(this@FilmListActivity, FilmDataActivity::class.java)
+        listFilm.setOnItemClickListener{ parent: AdapterView<*>, view: View,
+                                     position: Int, id: Long ->
+            val elemento = adapter.getItem(position) as String
+            Toast.makeText(
+                this@FilmListActivity,
+                "$elemento seleccionado", Toast.LENGTH_LONG
+          ).show()
+         }
 
-            filmAListIntent.putExtra("filmA", getString(R.string.bladeRunner))
-            startActivity(filmAListIntent)
-        }
+    /*       binding.filmA.setOnClickListener {
+               val filmAListIntent = Intent(this@FilmListActivity, FilmDataActivity::class.java)
 
-        binding.filmB.setOnClickListener {
-            val filmBListIntent = Intent(this@FilmListActivity, FilmDataActivity::class.java)
-            filmBListIntent.putExtra("filmB", getString(R.string.watchFilmB))
-            startActivity(filmBListIntent)
-        }
+               filmAListIntent.putExtra("filmA", getString(R.string.bladeRunner))
+               startActivity(filmAListIntent)
+           }
 
-        binding.about.setOnClickListener {
-            val aboutIntent = Intent(this@FilmListActivity, AboutActivity::class.java)
-            startActivity(aboutIntent)
-        }*/
+           binding.filmB.setOnClickListener {
+               val filmBListIntent = Intent(this@FilmListActivity, FilmDataActivity::class.java)
+               filmBListIntent.putExtra("filmB", getString(R.string.watchFilmB))
+               startActivity(filmBListIntent)
+           }
+
+           binding.about.setOnClickListener {
+               val aboutIntent = Intent(this@FilmListActivity, AboutActivity::class.java)
+               startActivity(aboutIntent)
+           }*/
     }
 }
