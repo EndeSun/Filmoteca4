@@ -131,27 +131,12 @@ class FilmListActivity : AppCompatActivity() {
 
         listFilm.setOnItemClickListener{ parent: AdapterView<*>, view: View,
                                      position: Int, id: Long ->
-            val elemento = adapter.getItem(position) as String
-            Toast.makeText(
-                this@FilmListActivity,
-                "$elemento seleccionado", Toast.LENGTH_LONG
-          ).show()
+            //val elemento = adapter.getItem(position)
+            val intentFilm = Intent(this@FilmListActivity, FilmDataActivity::class.java)
+            intentFilm.putExtra("position",position)
+            startActivity(intentFilm)
          }
-
-    /*       binding.filmA.setOnClickListener {
-               val filmAListIntent = Intent(this@FilmListActivity, FilmDataActivity::class.java)
-
-               filmAListIntent.putExtra("filmA", getString(R.string.bladeRunner))
-               startActivity(filmAListIntent)
-           }
-
-           binding.filmB.setOnClickListener {
-               val filmBListIntent = Intent(this@FilmListActivity, FilmDataActivity::class.java)
-               filmBListIntent.putExtra("filmB", getString(R.string.watchFilmB))
-               startActivity(filmBListIntent)
-           }
-
-           binding.about.setOnClickListener {
+           /*binding.about.setOnClickListener {
                val aboutIntent = Intent(this@FilmListActivity, AboutActivity::class.java)
                startActivity(aboutIntent)
            }*/

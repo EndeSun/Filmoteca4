@@ -1,10 +1,10 @@
 <resources>
     <string-array name="genderOption">
         <item>Action</item>
-        <item>Drama</item>
         <item>Comedy</item>
-        <item>Terror</item>
+        <item>Drama</item>
         <item>Sci-Fi</item>
+        <item>Terror</item>
     </string-array>
 
     <string-array name="formatOption">

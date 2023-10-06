@@ -14,7 +14,15 @@ class FilmEditActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.save.setOnClickListener {
-            setResult(Activity.RESULT_OK)
+            val intentInfoChange = Intent()
+            intentInfoChange.putExtra("inputFilmTitle", binding.inputFilmTitle.text.toString())
+            intentInfoChange.putExtra("inputDirectorName",binding.inputDirectorName.text.toString())
+            intentInfoChange.putExtra("inputYear",binding.inputYear.text.toString())
+            intentInfoChange.putExtra("inputLink",binding.inputLinkIMDB.text.toString())
+            intentInfoChange.putExtra("inputGender",binding.genderOption.selectedItem.toString())
+            intentInfoChange.putExtra("inputFormat",binding.formatOption.selectedItem.toString())
+            intentInfoChange.putExtra("inputComment",binding.inputComment.text.toString())
+            setResult(Activity.RESULT_OK, intentInfoChange)
             finish()
         }
 
