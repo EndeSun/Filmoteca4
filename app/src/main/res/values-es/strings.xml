@@ -47,5 +47,7 @@
     <string name="inputYear">Año</string>
     <string name="inputLinkIMDB">Enlace a IMDB</string>
     <string name="inputComment">Comentarios</string>
+
+    <string name="filmImageAlt">Imagen de la película</string>
 </resources>
 
