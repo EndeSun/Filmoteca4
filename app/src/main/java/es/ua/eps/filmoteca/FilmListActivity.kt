@@ -110,6 +110,8 @@ class FilmListActivity : AppCompatActivity() {
         }
     }
 
+//    Para crear listas: Tener el array , tener el layout definido(del sistema o propio) donde irá cada elemento, tener el adaptador(del sistema o propio hay que crear una clase de ArrayAdapter),
+//    y une la referencia del layout con el dato del object que se quiere rellenar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityFilmListBinding.inflate(layoutInflater)
