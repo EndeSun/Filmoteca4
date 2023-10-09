@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/bladeRunnerImage"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="86dp"
         android:text="@string/backToHome"
         tools:layout_editor_absoluteX="240dp"
         tools:layout_editor_absoluteY="391dp" />
@@ -83,8 +83,8 @@
         android:layout_width="199dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/bladeRunnerImage"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="86dp"
         android:layout_toEndOf="@id/backToHome"
         android:text="@string/filmEdit"
         tools:layout_editor_absoluteX="250dp"
@@ -161,5 +161,15 @@
         android:text="@string/yearPublication"
         tools:layout_editor_absoluteX="209dp"
         tools:layout_editor_absoluteY="72dp" />
+
+    <TextView
+        android:id="@+id/filmComment"
+        android:layout_width="383dp"
+        android:layout_height="63dp"
+        android:layout_below="@id/filmFormatBladeRunner"
+        android:layout_marginStart="-169dp"
+        android:layout_marginTop="23dp"
+        android:layout_toEndOf="@id/bladeRunnerImage"
+        />
 
 </RelativeLayout>

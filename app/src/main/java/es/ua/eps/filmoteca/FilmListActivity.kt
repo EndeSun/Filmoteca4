@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import es.ua.eps.filmoteca.databinding.ActivityFilmListBinding
 
 
@@ -42,10 +42,8 @@ class FilmListActivity : AppCompatActivity() {
             const val GENRE_HORROR = 4
         }
     }
-
     object FilmDataSource {
         val films: MutableList<Film> = mutableListOf<Film>()
-
         init {
             val f1 = Film()
             f1.title = "Blade Runner"
@@ -56,8 +54,6 @@ class FilmListActivity : AppCompatActivity() {
             f1.genre = Film.GENRE_SCIFI
             f1.imdbUrl = "https://www.imdb.com/title/tt0083658/?ref_=fn_al_tt_1"
             f1.year = 1982
-
-
             val f2 = Film()
             f2.title = "Regreso al futuro II"
             f2.director = "Robert Zemeckis"
@@ -67,7 +63,6 @@ class FilmListActivity : AppCompatActivity() {
             f2.genre = Film.GENRE_SCIFI
             f2.imdbUrl = "https://www.imdb.com/title/tt0096874/?ref_=fn_al_tt_3"
             f2.year = 1989
-
             val f3 = Film()
             f3.title = "Regreso al futuro III"
             f3.director = "Robert Zemeckis"
@@ -77,7 +72,6 @@ class FilmListActivity : AppCompatActivity() {
             f3.genre = Film.GENRE_ACTION
             f3.imdbUrl = "https://www.imdb.com/title/tt0099088/?ref_=fn_al_tt_4"
             f3.year = 1990
-
             val f4 = Film()
             f4.title = "Los cazafantasmas"
             f4.director = "Ivan Reitman"
@@ -94,7 +88,7 @@ class FilmListActivity : AppCompatActivity() {
             films.add(f4)
         }
     }
-
+    //ArrayAdapter PROPIO
     class FilmsArrayAdapter (context: Context?, resource:Int, objects: List<Film>): ArrayAdapter<Film>(context!!, resource, objects!!){
         override fun getView(position: Int, convertView: View?, parent:ViewGroup) : View{
             val view: View = convertView?: LayoutInflater.from(this.context).inflate(R.layout.item_film, parent, false)
@@ -112,33 +106,29 @@ class FilmListActivity : AppCompatActivity() {
         }
     }
 
-//    Para crear listas: Tener el array , tener el layout definido(del sistema o propio) donde irá cada elemento, tener el adaptador(del sistema o propio hay que crear una clase de ArrayAdapter),
-//    y une la referencia del layout con el dato del object que se quiere rellenar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityFilmListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val listFilm = binding.filmList
-
-//        Este adatador predefinido ya no nos sirve, necesitamos crear el nuestro propio
         val adapter = FilmsArrayAdapter(
             this,
             R.layout.item_film,
             FilmDataSource.films
         )
-
         listFilm.adapter = adapter
-
         listFilm.setOnItemClickListener{ parent: AdapterView<*>, view: View,
                                      position: Int, id: Long ->
             //val elemento = adapter.getItem(position)
-            val intentFilm = Intent(this@FilmListActivity, FilmDataActivity::class.java)
-            intentFilm.putExtra("position",position)
-            startActivity(intentFilm)
+            println(position)
+            goFilm(position)
          }
-           /*binding.about.setOnClickListener {
-               val aboutIntent = Intent(this@FilmListActivity, AboutActivity::class.java)
-               startActivity(aboutIntent)
-           }*/
     }
+
+        private fun goFilm(position: Int){
+            val intentFilm = Intent(this@FilmListActivity, FilmDataActivity::class.java)
+            intentFilm.putExtra("position", position)
+            startActivity(intentFilm)
+        }
+
 }

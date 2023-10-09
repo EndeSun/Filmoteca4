@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -12,34 +11,32 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/bladeRunnerImage"
+            android:id="@+id/bladeRunnerImageEdit"
             android:layout_width="113dp"
             android:layout_height="75dp"
             android:layout_margin="2dp"
             android:layout_weight="1"
             android:contentDescription="@string/bladeRunner"
-            app:srcCompat="@drawable/blade_runner" />
+            tools:srcCompat="@drawable/blade_runner" />
 
         <Button
-
             android:id="@+id/catchPhoto"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:background="#222020"
             android:text="@string/catchPhoto"
             android:textColorHighlight="#0E0D0D"
             android:textColorLink="#1E1616"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            />
 
         <Button
             android:id="@+id/selectImage"
-            android:layout_width="164dp"
-            android:layout_height="75dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:background="#1B1818"
             android:text="@string/selectImage"
             android:textSize="16sp" />
     </LinearLayout>
@@ -94,7 +91,7 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="@string/inputYear"
-        android:inputType="text"
+        android:inputType="number"
         android:minWidth="5dp"
         android:minHeight="48dp"
         android:textColor="#000000"
